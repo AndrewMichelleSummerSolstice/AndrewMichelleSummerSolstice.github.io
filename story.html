@@ -118,43 +118,140 @@
       margin: 0;
     }
 
-    /* Milestone markers */
-    .milestones {
+    /* ---- Chibi Timeline (vertical alternating) ---- */
+    .chibi-timeline {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: var(--space-xl);
-      padding: var(--space-xl) var(--space-lg);
-      max-width: 900px;
+      flex-direction: column;
+      position: relative;
+      max-width: 820px;
       margin-inline: auto;
-      text-align: center;
+      gap: var(--space-xl);
+      padding-block: var(--space-md);
     }
 
-    .milestone {
+    /* Vertical center line */
+    .chibi-timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: linear-gradient(to bottom,
+        transparent,
+        var(--sage-light) 5%,
+        var(--gold-light) 50%,
+        var(--sage-light) 95%,
+        transparent
+      );
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+
+    .chibi-stop {
+      display: grid;
+      grid-template-columns: 1fr 28px 1fr;
+      align-items: center;
+      gap: var(--space-md);
+      position: relative;
+    }
+
+    .chibi-stop__card {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: var(--space-xs);
-      min-width: 140px;
     }
 
-    .milestone__year {
+    .chibi-stop__dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--gold-light);
+      position: relative;
+      z-index: 1;
+      justify-self: center;
+    }
+
+    .chibi-stop--left  .chibi-stop__card  { grid-column: 1; }
+    .chibi-stop--left  .chibi-stop__dot   { grid-column: 2; }
+    .chibi-stop--left  .chibi-stop__empty { grid-column: 3; }
+    .chibi-stop--right .chibi-stop__empty { grid-column: 1; }
+    .chibi-stop--right .chibi-stop__dot   { grid-column: 2; }
+    .chibi-stop--right .chibi-stop__card  { grid-column: 3; }
+
+    .chibi-img {
+      width: 400px;
+      height: 250px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--sage-pale);
+      border: 3px solid var(--cream-dark);
+      box-shadow: var(--shadow-md);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chibi-img svg, .chibi-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .chibi-stop__year {
       font-family: var(--font-heading);
-      font-size: 2rem;
+      font-size: 1.05rem;
       font-weight: 600;
-      color: var(--gold);
-      line-height: 1;
+      color: var(--gold-dark);
+      text-align: center;
+      line-height: 1.2;
     }
 
-    .milestone__label {
-      font-size: 0.8rem;
+    .chibi-stop__milestone-label {
+      font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .chibi-timeline {
+        padding-left: 44px;
+        gap: var(--space-lg);
+      }
+      .chibi-timeline::before {
+        left: 18px;
+        transform: none;
+      }
+      .chibi-stop {
+        grid-template-columns: 28px 1fr;
+        gap: var(--space-sm);
+      }
+      .chibi-stop__empty { display: none; }
+      .chibi-stop--left .chibi-stop__dot,
+      .chibi-stop--right .chibi-stop__dot  { grid-column: 1; }
+      .chibi-stop--left .chibi-stop__card,
+      .chibi-stop--right .chibi-stop__card { grid-column: 2; }
+      .chibi-img { width: 160px; height: 160px; }
+    }
+
+    /* Photo strip — two side-by-side images below a story section */
+    .photo-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+      max-width: 480px;
+      margin-inline: auto;
     }
 
     @media (max-width: 768px) {
+      .photo-strip {
+        grid-template-columns: 1fr;
+      }
+    }
       .story-section {
         grid-template-columns: 1fr;
       }
@@ -200,7 +297,7 @@
   <header class="page-hero">
     <span class="page-hero__eyebrow">Andrew &amp; Michelle</span>
     <h1 class="page-hero__title">Our Story</h1>
-    <p class="page-hero__subtitle">How two people found each other and chose forever</p>
+    <p class="page-hero__subtitle">How Dan's Brother and Jason's Sister met with a Perm Saga</p>
   </header>
 
   <main>
@@ -213,52 +310,137 @@
           <h2 class="section__title">The Highlights</h2>
           <span class="divider" aria-hidden="true"></span>
         </div>
-        <div class="milestones">
-          <div class="milestone reveal">
-            <span class="milestone__year">20XX</span>
-            <span class="milestone__label">We Met</span>
+        <!-- Chibi SVG symbols —— referenced by each timeline stop -->
+        <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+          <defs>
+            <symbol id="chibi-andrew" viewBox="0 0 60 60">
+              <rect x="16" y="44" width="28" height="16" rx="5" fill="#5E8A50"/>
+              <rect x="26" y="38" width="8" height="8" fill="#C8916C"/>
+              <circle cx="30" cy="26" r="16" fill="#C8916C"/>
+              <circle cx="15" cy="18" r="6.5" fill="#2C1B0E"/>
+              <circle cx="19" cy="11" r="6.5" fill="#2C1B0E"/>
+              <circle cx="26" cy="8"  r="6.5" fill="#2C1B0E"/>
+              <circle cx="34" cy="8"  r="6.5" fill="#2C1B0E"/>
+              <circle cx="41" cy="11" r="6.5" fill="#2C1B0E"/>
+              <circle cx="45" cy="18" r="6.5" fill="#2C1B0E"/>
+              <ellipse cx="23" cy="25" rx="3.5" ry="4" fill="white"/>
+              <ellipse cx="37" cy="25" rx="3.5" ry="4" fill="white"/>
+              <circle cx="24" cy="26" r="2.3" fill="#1A0F08"/>
+              <circle cx="38" cy="26" r="2.3" fill="#1A0F08"/>
+              <circle cx="24.9" cy="24.8" r="0.9" fill="white"/>
+              <circle cx="38.9" cy="24.8" r="0.9" fill="white"/>
+              <path d="M26 31 Q30 35 34 31" stroke="#1A0F08" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </symbol>
+            <symbol id="chibi-michelle" viewBox="0 0 60 60">
+              <path d="M12 60 L14 44 Q20 40 30 40 Q40 40 46 44 L48 60Z" fill="#C9A84C"/>
+              <rect x="26" y="37" width="8" height="7" fill="#D4A070"/>
+              <circle cx="30" cy="24" r="16" fill="#D4A070"/>
+              <ellipse cx="30" cy="12" rx="16" ry="9" fill="#2C1B0E"/>
+              <rect x="12" y="16" width="6" height="18" rx="3" fill="#2C1B0E"/>
+              <rect x="42" y="16" width="6" height="18" rx="3" fill="#2C1B0E"/>
+              <ellipse cx="23" cy="23" rx="3.5" ry="4" fill="white"/>
+              <ellipse cx="37" cy="23" rx="3.5" ry="4" fill="white"/>
+              <circle cx="24" cy="24" r="2.3" fill="#1A0F08"/>
+              <circle cx="38" cy="24" r="2.3" fill="#1A0F08"/>
+              <circle cx="24.9" cy="22.8" r="0.9" fill="white"/>
+              <circle cx="38.9" cy="22.8" r="0.9" fill="white"/>
+              <line x1="20" y1="20" x2="20.5" y2="18.2" stroke="#1A0F08" stroke-width="1.2" stroke-linecap="round"/>
+              <line x1="23" y1="19" x2="23.3" y2="17.2" stroke="#1A0F08" stroke-width="1.2" stroke-linecap="round"/>
+              <line x1="33" y1="19" x2="33.3" y2="17.2" stroke="#1A0F08" stroke-width="1.2" stroke-linecap="round"/>
+              <line x1="36" y1="20" x2="36.5" y2="18.2" stroke="#1A0F08" stroke-width="1.2" stroke-linecap="round"/>
+              <ellipse cx="18" cy="28" rx="4" ry="2.5" fill="#E8A090" opacity="0.45"/>
+              <ellipse cx="42" cy="28" rx="4" ry="2.5" fill="#E8A090" opacity="0.45"/>
+              <path d="M26 30 Q30 35 34 30" stroke="#1A0F08" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </symbol>
+          </defs>
+        </svg>
+
+        <div class="chibi-timeline">
+
+            <!-- 1 · We Met (LEFT) -->
+            <div class="chibi-stop chibi-stop--left reveal">
+              <div class="chibi-stop__card">
+                <div class="chibi-img"><img src="assets/images/story/HowWeMetPlayingBoardGames.png" alt="Andrew and Michelle meeting over board games"/></div>
+                <p class="chibi-stop__year">Jan 2024</p>
+                <p class="chibi-stop__milestone-label">We Met</p>
+              </div>
+              <div class="chibi-stop__dot"></div>
+              <div class="chibi-stop__empty"></div>
+            </div>
+
+            <!-- 2 · First Date (RIGHT) -->
+            <div class="chibi-stop chibi-stop--right reveal" data-delay="80ms">
+              <div class="chibi-stop__empty"></div>
+              <div class="chibi-stop__dot"></div>
+              <div class="chibi-stop__card">
+                <div class="chibi-img"><img src="assets/images/story/TacoFirstDate.png" alt="Andrew and Michelle's first date at a taco place"/></div>
+                <p class="chibi-stop__year">Mar 2024</p>
+                <p class="chibi-stop__milestone-label">First Date</p>
+              </div>
+            </div>
+
+            <!-- 3 · Engaged in Japan (LEFT) -->
+            <div class="chibi-stop chibi-stop--left reveal" data-delay="160ms">
+              <div class="chibi-stop__card">
+                <div class="chibi-img"><img src="assets/images/story/JapanProposal.png" alt="Andrew proposing to Michelle in Japan"/></div>
+                <p class="chibi-stop__year">Apr 2025</p>
+                <p class="chibi-stop__milestone-label">Engaged in Japan</p>
+              </div>
+              <div class="chibi-stop__dot"></div>
+              <div class="chibi-stop__empty"></div>
+            </div>
+
+            <!-- 4 · Courthouse Wed (RIGHT) -->
+            <div class="chibi-stop chibi-stop--right reveal" data-delay="240ms">
+              <div class="chibi-stop__empty"></div>
+              <div class="chibi-stop__dot"></div>
+              <div class="chibi-stop__card">
+                <div class="chibi-img"><img src="assets/images/story/CourthouseMarried.png" alt="Andrew and Michelle at their courthouse wedding"/></div>
+                <p class="chibi-stop__year">Sep 2025</p>
+                <p class="chibi-stop__milestone-label">Courthouse Wed</p>
+              </div>
+            </div>
+
+            <!-- 5 · Ceremony (LEFT) -->
+            <div class="chibi-stop chibi-stop--left reveal" data-delay="320ms">
+              <div class="chibi-stop__card">
+                <div class="chibi-img"><img src="assets/images/story/MadisonHotel.jpg" alt="Andrew and Michelle's wedding ceremony at the Madison Hotel"/></div>
+                <p class="chibi-stop__year">Jun 2026</p>
+                <p class="chibi-stop__milestone-label">Ceremony!</p>
+              </div>
+              <div class="chibi-stop__dot"></div>
+              <div class="chibi-stop__empty"></div>
+            </div>
+
           </div>
-          <div class="milestone reveal" data-delay="80ms">
-            <span class="milestone__year">20XX</span>
-            <span class="milestone__label">First Date</span>
-          </div>
-          <div class="milestone reveal" data-delay="160ms">
-            <span class="milestone__year">20XX</span>
-            <span class="milestone__label">Official</span>
-          </div>
-          <div class="milestone reveal" data-delay="240ms">
-            <span class="milestone__year">20XX</span>
-            <span class="milestone__label">Engaged</span>
-          </div>
-          <div class="milestone reveal" data-delay="320ms">
-            <span class="milestone__year">2026</span>
-            <span class="milestone__label">Married!</span>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- ========== How We Met ========== -->
     <section class="section">
       <div class="container">
-        <div class="story-section">
+        <div class="story-section" style="grid-template-columns: 2fr 1fr;">
           <div class="story-section__image reveal">
-            <!-- Replace src with an actual engagement photo -->
-            <div class="placeholder">
-              <span class="placeholder__icon">📷</span>
-              <p class="placeholder__text">Photo coming soon</p>
-            </div>
+            <img src="assets/images/story/PermSaga.jpg" alt="Daniel sporting his legendary perm" />
           </div>
           <div class="story-section__text reveal">
-            <p class="story-section__eyebrow">Chapter One</p>
-            <h2 class="story-section__title">How We Met</h2>
+            <p class="story-section__eyebrow">Prelude</p>
+            <h2 class="story-section__title">The Perm Saga</h2>
             <p class="story-section__body">
-              [Add your "how we met" story here. Tell guests where you first crossed paths,
-              what the moment was like, and what made you notice each other.]
+              It started, as many great love stories do, with a haircut. In December 2023,
+              Andrew convinced his brother Daniel &mdash; a medical student with untapped
+              style potential &mdash; to get a perm. The pitch was straightforward: a fresh
+              look would win over the girl he&rsquo;d been hoping to impress.
             </p>
             <p class="story-section__body">
-              [Continue the story — the first conversation, what stood out, the feeling
-              that something special was beginning.]
+              The plan worked brilliantly. Daniel&rsquo;s new curls were an immediate hit,
+              so much so that his classmates were overheard saying, &ldquo;He has better hair
+              than me.&rdquo; The Perm Saga had officially become legend.
+            </p>
+            <p class="story-section__body">
+              Grateful for the unsolicited &mdash; but undeniably effective &mdash; styling
+              advice, Daniel decided to return the favor. He introduced Andrew to Michelle,
+              and the rest is the story you&rsquo;re reading right now.
             </p>
           </div>
         </div>
@@ -268,32 +450,74 @@
     <!-- ========== Pull Quote ========== -->
     <div class="pull-quote reveal">
       <blockquote>
-        <p class="pull-quote__text">"[Add a meaningful quote, a line from a song, or something one of you said that captures your relationship perfectly.]"</p>
-        <footer><p class="pull-quote__attribution">— Andrew &amp; Michelle</p></footer>
+        <p class="pull-quote__text">"I tried dating apps, meeting people, even speed dating — but the moment I met Michelle, I knew she was the one, even if she lived on the other side of the country."</p>
+        <footer><p class="pull-quote__attribution">— Andrew</p></footer>
       </blockquote>
     </div>
 
-    <!-- ========== Falling in Love ========== -->
+    <!-- ========== How We Met ========== -->
     <section class="section section--alt">
       <div class="container">
-        <div class="story-section story-section--flip">
+        <div class="story-section story-section--flip" style="grid-template-columns: 2fr 1fr;">
           <div class="story-section__text reveal">
-            <p class="story-section__eyebrow">Chapter Two</p>
-            <h2 class="story-section__title">Falling in Love</h2>
+            <p class="story-section__eyebrow">Chapter One</p>
+            <h2 class="story-section__title">How We Met</h2>
             <p class="story-section__body">
-              [Share what the early days of the relationship were like — adventures you went on,
-              things you discovered you had in common, moments that made you certain.]
+              On New Year&rsquo;s Day 2024, Andrew and Michelle crossed paths for the first
+              time in a group setting &mdash; and it wouldn&rsquo;t be the last. Over the
+              following week, they kept finding themselves at the same board game nights,
+              where Michelle and her friends made sure Andrew was well acquainted with the
+              feeling of losing.
             </p>
             <p class="story-section__body">
-              [Describe the experiences, places, and memories that shaped your relationship
-              and brought you closer together.]
+              Between game nights, the two explored a little further afield &mdash; wandering
+              through the American Dream Mall, checking out the MrBeast Burger, and finishing
+              the day over boba. By the end of it all, Andrew had extended an open invitation:
+              Michelle and her friends were always welcome to visit him in Seattle.
             </p>
           </div>
           <div class="story-section__image reveal">
-            <div class="placeholder">
-              <span class="placeholder__icon">📷</span>
-              <p class="placeholder__text">Photo coming soon</p>
-            </div>
+            <img src="assets/images/story/BoardGameNight.jpg" alt="Board game night where Andrew and Michelle first met" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Becoming Official ========== -->
+    <section class="section">
+      <div class="container">
+        <div class="story-section story-section--flip" style="grid-template-columns: 2fr 1fr;">
+          <div class="story-section__text reveal">
+            <p class="story-section__eyebrow">Chapter Two</p>
+            <h2 class="story-section__title">Becoming Official</h2>
+            <p class="story-section__body">
+              A few months later, Michelle made her way to Seattle for Sakura Con &mdash;
+              an anime convention that would turn out to be far more than just a weekend
+              trip. She arrived a couple of days early, and for those first few days it
+              was just the two of them.
+            </p>
+            <p class="story-section__body">
+              Andrew, naturally, came prepared. He deployed the full Seattle welcome: free
+              sodas courtesy of Microsoft, a carefully curated tour of the city&rsquo;s
+              best food spots, and enough charm to make a convincing case for the Pacific
+              Northwest. By the time Sakura Con officially kicked off, something between
+              them had quietly shifted.
+            </p>
+            <p class="story-section__body">
+              They made it official. And one month later, Michelle packed up and moved to
+              Seattle &mdash; fully, completely all&nbsp;in.
+            </p>
+          </div>
+          <div class="story-section__image reveal">
+            <img src="assets/images/story/SeattleSpaceNeedle.jpg" alt="Seattle Space Needle" />
+          </div>
+        </div>
+        <div class="photo-strip">
+          <div class="story-section__image reveal">
+            <img src="assets/images/story/CostcoSushi.jpg" alt="Andrew and Michelle grabbing Costco sushi in Seattle" />
+          </div>
+          <div class="story-section__image reveal" data-delay="80ms">
+            <img src="assets/images/story/SakuraConCosplay.jpg" alt="Andrew and Michelle at Sakura Con" />
           </div>
         </div>
       </div>
@@ -302,12 +526,9 @@
     <!-- ========== The Proposal ========== -->
     <section class="section">
       <div class="container">
-        <div class="story-section">
+        <div class="story-section" style="grid-template-columns: 2fr 1fr;">
           <div class="story-section__image reveal">
-            <div class="placeholder">
-              <span class="placeholder__icon">💍</span>
-              <p class="placeholder__text">Engagement photo coming soon</p>
-            </div>
+            <img src="assets/images/story/JapanProposalIRL.JPG" alt="Andrew proposing to Michelle in Japan" />
           </div>
           <div class="story-section__text reveal">
             <p class="story-section__eyebrow">Chapter Three</p>

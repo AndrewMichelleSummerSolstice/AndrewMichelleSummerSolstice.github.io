@@ -216,8 +216,6 @@
     }
   }
 
-  // Initialise only after the password gate is passed.
-  // auth.js dispatches 'seating:unlocked' both on first correct entry
-  // and when a valid session is already stored in sessionStorage.
-  document.addEventListener('seating:unlocked', init);
+  // Initialise once the DOM is ready.
+  document.addEventListener('DOMContentLoaded', init);
 })();
