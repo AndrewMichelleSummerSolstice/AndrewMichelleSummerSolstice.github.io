@@ -79,6 +79,29 @@
       background: rgba(44, 62, 45, 0.15);
     }
 
+    /* Gallery caption */
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      padding: var(--space-xs) var(--space-sm);
+      background: linear-gradient(transparent, rgba(20, 30, 20, 0.65));
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-align: center;
+      opacity: 0;
+      transition: opacity var(--transition-normal);
+      pointer-events: none;
+    }
+
+    a.gallery-item:hover .gallery-caption {
+      opacity: 1;
+    }
+
     /* Future photos section */
     .coming-soon-banner {
       display: flex;
@@ -150,129 +173,199 @@
     <section class="section">
       <div class="container">
         <div class="section__header reveal">
-          <span class="section__eyebrow">Engagement Session</span>
+          <span class="section__eyebrow">Out takes of Life</span>
           <h2 class="section__title">Before the Big Day</h2>
           <span class="divider" aria-hidden="true"></span>
-          <p class="section__subtitle">
-            Add your engagement photos to the <code>assets/images/</code> folder and update the
-            <code>data-pswp-src</code> attributes below.
-          </p>
+          <p class="section__subtitle">Snapshots from our adventures together.</p>
         </div>
 
-        <!-- PhotoSwipe Gallery Container -->
-        <!-- To add real photos:
-             1. Place images in assets/images/ (e.g., engagement-01.jpg)
-             2. Replace each <div class="gallery-placeholder"> with <img src="..." alt="...">
-             3. Update data-pswp-src, data-pswp-width, data-pswp-height on each <a> tag
-        -->
         <div class="pswp-gallery gallery-grid" id="engagement-gallery">
 
-          <a href="assets/images/engagement-01.jpg"
-             data-pswp-src="assets/images/engagement-01.jpg"
-             data-pswp-width="1200"
-             data-pswp-height="1600"
+          <a href="assets/images/photos/0_Costco_Sushi.jpg"
+             data-pswp-src="assets/images/photos/0_Costco_Sushi.jpg"
+             data-pswp-width="4080"
+             data-pswp-height="3072"
+             data-pswp-caption="Costco Sushi"
              class="gallery-item reveal"
-             aria-label="Engagement photo 1">
-            <div class="gallery-placeholder gallery-placeholder--tall">
-              <span class="gallery-placeholder__icon">📷</span>
-              <span>Photo 1</span>
-            </div>
+             aria-label="Costco Sushi">
+            <img src="assets/images/photos/0_Costco_Sushi.jpg" alt="Costco Sushi" loading="lazy" />
+            <span class="gallery-caption">Costco Sushi</span>
           </a>
 
-          <a href="assets/images/engagement-02.jpg"
-             data-pswp-src="assets/images/engagement-02.jpg"
-             data-pswp-width="1600"
-             data-pswp-height="1200"
+          <a href="assets/images/photos/1_FirstDate_Back_In_Seattle.jpg"
+             data-pswp-src="assets/images/photos/1_FirstDate_Back_In_Seattle.jpg"
+             data-pswp-width="2736"
+             data-pswp-height="3648"
+             data-pswp-caption="First Date Back in Seattle"
              class="gallery-item reveal"
-             aria-label="Engagement photo 2">
-            <div class="gallery-placeholder gallery-placeholder--wide">
-              <span class="gallery-placeholder__icon">📷</span>
-              <span>Photo 2</span>
-            </div>
+             aria-label="First Date Back in Seattle">
+            <img src="assets/images/photos/1_FirstDate_Back_In_Seattle.jpg" alt="First Date Back in Seattle" loading="lazy" />
+            <span class="gallery-caption">First Date Back in Seattle</span>
           </a>
 
-          <a href="assets/images/engagement-03.jpg"
-             data-pswp-src="assets/images/engagement-03.jpg"
-             data-pswp-width="1200"
-             data-pswp-height="1600"
+          <a href="assets/images/photos/2_CookingAtHome.jpg"
+             data-pswp-src="assets/images/photos/2_CookingAtHome.jpg"
+             data-pswp-width="3072"
+             data-pswp-height="4080"
+             data-pswp-caption="Cooking at Home"
              class="gallery-item reveal"
-             aria-label="Engagement photo 3">
-            <div class="gallery-placeholder gallery-placeholder--tall">
-              <span class="gallery-placeholder__icon">📷</span>
-              <span>Photo 3</span>
-            </div>
+             aria-label="Cooking at Home">
+            <img src="assets/images/photos/2_CookingAtHome.jpg" alt="Cooking at Home" loading="lazy" />
+            <span class="gallery-caption">Cooking at Home</span>
           </a>
 
-          <a href="assets/images/engagement-04.jpg"
-             data-pswp-src="assets/images/engagement-04.jpg"
-             data-pswp-width="1200"
-             data-pswp-height="1200"
+          <a href="assets/images/photos/3_Hiking.jpg"
+             data-pswp-src="assets/images/photos/3_Hiking.jpg"
+             data-pswp-width="3648"
+             data-pswp-height="2736"
+             data-pswp-caption="Hiking"
              class="gallery-item reveal"
-             aria-label="Engagement photo 4">
-            <div class="gallery-placeholder">
-              <span class="gallery-placeholder__icon">📷</span>
-              <span>Photo 4</span>
-            </div>
+             aria-label="Hiking">
+            <img src="assets/images/photos/3_Hiking.jpg" alt="Hiking" loading="lazy" />
+            <span class="gallery-caption">Hiking</span>
           </a>
 
-          <a href="assets/images/engagement-05.jpg"
-             data-pswp-src="assets/images/engagement-05.jpg"
-             data-pswp-width="1600"
-             data-pswp-height="1200"
+          <a href="assets/images/photos/4_Japan.jpg"
+             data-pswp-src="assets/images/photos/4_Japan.jpg"
+             data-pswp-width="3072"
+             data-pswp-height="4080"
+             data-pswp-caption="Japan"
              class="gallery-item reveal"
-             aria-label="Engagement photo 5">
-            <div class="gallery-placeholder gallery-placeholder--wide">
-              <span class="gallery-placeholder__icon">📷</span>
-              <span>Photo 5</span>
-            </div>
+             aria-label="Japan">
+            <img src="assets/images/photos/4_Japan.jpg" alt="Japan" loading="lazy" />
+            <span class="gallery-caption">Japan</span>
           </a>
 
-          <a href="assets/images/engagement-06.jpg"
-             data-pswp-src="assets/images/engagement-06.jpg"
-             data-pswp-width="1200"
-             data-pswp-height="1600"
+          <a href="assets/images/photos/5_SanDiego_Crossstreet.jpg"
+             data-pswp-src="assets/images/photos/5_SanDiego_Crossstreet.jpg"
+             data-pswp-width="4080"
+             data-pswp-height="3072"
+             data-pswp-caption="San Diego"
              class="gallery-item reveal"
-             aria-label="Engagement photo 6">
-            <div class="gallery-placeholder gallery-placeholder--tall">
-              <span class="gallery-placeholder__icon">📷</span>
-              <span>Photo 6</span>
-            </div>
+             aria-label="San Diego">
+            <img src="assets/images/photos/5_SanDiego_Crossstreet.jpg" alt="San Diego" loading="lazy" />
+            <span class="gallery-caption">San Diego</span>
           </a>
 
-          <a href="assets/images/engagement-07.jpg"
-             data-pswp-src="assets/images/engagement-07.jpg"
-             data-pswp-width="1200"
-             data-pswp-height="1600"
+          <a href="assets/images/photos/6_Lake_Colchuck.jpg"
+             data-pswp-src="assets/images/photos/6_Lake_Colchuck.jpg"
+             data-pswp-width="4080"
+             data-pswp-height="3072"
+             data-pswp-caption="Lake Colchuck"
              class="gallery-item reveal"
-             aria-label="Engagement photo 7">
-            <div class="gallery-placeholder gallery-placeholder--tall">
-              <span class="gallery-placeholder__icon">📷</span>
-              <span>Photo 7</span>
-            </div>
+             aria-label="Lake Colchuck">
+            <img src="assets/images/photos/6_Lake_Colchuck.jpg" alt="Lake Colchuck" loading="lazy" />
+            <span class="gallery-caption">Lake Colchuck</span>
           </a>
 
-          <a href="assets/images/engagement-08.jpg"
-             data-pswp-src="assets/images/engagement-08.jpg"
-             data-pswp-width="1600"
-             data-pswp-height="1200"
+          <a href="assets/images/photos/7_LA.jpg"
+             data-pswp-src="assets/images/photos/7_LA.jpg"
+             data-pswp-width="2736"
+             data-pswp-height="3648"
+             data-pswp-caption="Los Angeles"
              class="gallery-item reveal"
-             aria-label="Engagement photo 8">
-            <div class="gallery-placeholder gallery-placeholder--wide">
-              <span class="gallery-placeholder__icon">📷</span>
-              <span>Photo 8</span>
-            </div>
+             aria-label="Los Angeles">
+            <img src="assets/images/photos/7_LA.jpg" alt="Los Angeles" loading="lazy" />
+            <span class="gallery-caption">Los Angeles</span>
           </a>
 
-          <a href="assets/images/engagement-09.jpg"
-             data-pswp-src="assets/images/engagement-09.jpg"
-             data-pswp-width="1200"
-             data-pswp-height="1600"
+          <a href="assets/images/photos/8_Vancouver.jpg"
+             data-pswp-src="assets/images/photos/8_Vancouver.jpg"
+             data-pswp-width="4080"
+             data-pswp-height="3072"
+             data-pswp-caption="Vancouver"
              class="gallery-item reveal"
-             aria-label="Engagement photo 9">
-            <div class="gallery-placeholder gallery-placeholder--tall">
-              <span class="gallery-placeholder__icon">📷</span>
-              <span>Photo 9</span>
-            </div>
+             aria-label="Vancouver">
+            <img src="assets/images/photos/8_Vancouver.jpg" alt="Vancouver" loading="lazy" />
+            <span class="gallery-caption">Vancouver</span>
+          </a>
+
+          <a href="assets/images/photos/9_Surpise_Birthday_Cake.jpg"
+             data-pswp-src="assets/images/photos/9_Surpise_Birthday_Cake.jpg"
+             data-pswp-width="3072"
+             data-pswp-height="4080"
+             data-pswp-caption="Surprise Birthday Cake"
+             class="gallery-item reveal"
+             aria-label="Surprise Birthday Cake">
+            <img src="assets/images/photos/9_Surpise_Birthday_Cake.jpg" alt="Surprise Birthday Cake" loading="lazy" />
+            <span class="gallery-caption">Surprise Birthday Cake</span>
+          </a>
+
+          <a href="assets/images/photos/10_Foodie_Vancouver.jpg"
+             data-pswp-src="assets/images/photos/10_Foodie_Vancouver.jpg"
+             data-pswp-width="4080"
+             data-pswp-height="3072"
+             data-pswp-caption="Foodie Vancouver"
+             class="gallery-item reveal"
+             aria-label="Foodie Vancouver">
+            <img src="assets/images/photos/10_Foodie_Vancouver.jpg" alt="Foodie Vancouver" loading="lazy" />
+            <span class="gallery-caption">Foodie Vancouver</span>
+          </a>
+
+          <a href="assets/images/photos/11_HairCut_Korea.jpg"
+             data-pswp-src="assets/images/photos/11_HairCut_Korea.jpg"
+             data-pswp-width="2160"
+             data-pswp-height="3840"
+             data-pswp-caption="Haircut — Korea"
+             class="gallery-item reveal"
+             aria-label="Haircut — Korea">
+            <img src="assets/images/photos/11_HairCut_Korea.jpg" alt="Haircut — Korea" loading="lazy" />
+            <span class="gallery-caption">Haircut — Korea</span>
+          </a>
+
+          <a href="assets/images/photos/12_Skiing_Mt_Rainier.jpg"
+             data-pswp-src="assets/images/photos/12_Skiing_Mt_Rainier.jpg"
+             data-pswp-width="4032"
+             data-pswp-height="2268"
+             data-pswp-caption="Skiing — Mt. Rainier"
+             class="gallery-item reveal"
+             aria-label="Skiing — Mt. Rainier">
+            <img src="assets/images/photos/12_Skiing_Mt_Rainier.jpg" alt="Skiing — Mt. Rainier" loading="lazy" />
+            <span class="gallery-caption">Skiing — Mt. Rainier</span>
+          </a>
+
+          <a href="assets/images/photos/13_Gardening.jpg"
+             data-pswp-src="assets/images/photos/13_Gardening.jpg"
+             data-pswp-width="3072"
+             data-pswp-height="4080"
+             data-pswp-caption="Gardening"
+             class="gallery-item reveal"
+             aria-label="Gardening">
+            <img src="assets/images/photos/13_Gardening.jpg" alt="Gardening" loading="lazy" />
+            <span class="gallery-caption">Gardening</span>
+          </a>
+
+          <a href="assets/images/photos/14_Setting_up_blinds.jpg"
+             data-pswp-src="assets/images/photos/14_Setting_up_blinds.jpg"
+             data-pswp-width="3072"
+             data-pswp-height="4080"
+             data-pswp-caption="Setting Up Blinds"
+             class="gallery-item reveal"
+             aria-label="Setting Up Blinds">
+            <img src="assets/images/photos/14_Setting_up_blinds.jpg" alt="Setting Up Blinds" loading="lazy" />
+            <span class="gallery-caption">Setting Up Blinds</span>
+          </a>
+
+          <a href="assets/images/photos/15_Taco_Time.jpg"
+             data-pswp-src="assets/images/photos/15_Taco_Time.jpg"
+             data-pswp-width="3072"
+             data-pswp-height="4080"
+             data-pswp-caption="Taco Time"
+             class="gallery-item reveal"
+             aria-label="Taco Time">
+            <img src="assets/images/photos/15_Taco_Time.jpg" alt="Taco Time" loading="lazy" />
+            <span class="gallery-caption">Taco Time</span>
+          </a>
+
+          <a href="assets/images/photos/16_Hawaii.jpg"
+             data-pswp-src="assets/images/photos/16_Hawaii.jpg"
+             data-pswp-width="2736"
+             data-pswp-height="3648"
+             data-pswp-caption="Hawaii"
+             class="gallery-item reveal"
+             aria-label="Hawaii">
+            <img src="assets/images/photos/16_Hawaii.jpg" alt="Hawaii" loading="lazy" />
+            <span class="gallery-caption">Hawaii</span>
           </a>
 
         </div>
