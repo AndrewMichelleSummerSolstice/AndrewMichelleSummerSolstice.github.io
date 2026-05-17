@@ -1,7 +1,6 @@
 /* =========================================================
    seating-search.js — Fuzzy guest search (Fuse.js) and
                        SVG floor plan interaction.
-   Initialised after auth.js fires 'seating:unlocked'.
    ========================================================= */
 
 (function () {
