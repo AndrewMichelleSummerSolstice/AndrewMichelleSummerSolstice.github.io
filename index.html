@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andrew &amp; Michelle — Summer Solstice Wedding 2026</title>
+  <meta name="description" content="Andrew &amp; Michelle are getting married on June 21, 2026. Join us for our Summer Solstice wedding celebration." />
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="Andrew &amp; Michelle — Summer Solstice Wedding 2026" />
+  <meta property="og:description" content="June 21, 2026 · Summer Solstice · We're getting married!" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://andrewmichellesummersolstice.github.io/" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+
+  <style>
+    /* ---- Hero ---- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-height) + var(--space-xl)) var(--space-lg) var(--space-2xl);
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(44, 62, 45, 0.48) 0%,
+          rgba(44, 62, 45, 0.20) 60%,
+          rgba(44, 62, 45, 0.55) 100%
+        ),
+        url('assets/images/hero.jpg') center / cover no-repeat;
+      background-color: var(--forest); /* fallback while image loads */
+      position: relative;
+    }
+
+    .hero__eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: var(--space-md);
+    }
+
+    .hero__names {
+      font-family: var(--font-heading);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: var(--space-md);
+      text-shadow: 0 2px 20px rgba(0,0,0,0.35);
+    }
+
+    .hero__names .ampersand {
+      color: var(--gold-light);
+      font-style: italic;
+      display: block;
+      font-size: 0.55em;
+      line-height: 1.6;
+    }
+
+    .hero__date {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero__cta {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* ---- Countdown ---- */
+    .countdown-section {
+      background: var(--forest);
+      padding: var(--space-xl) var(--space-lg);
+      text-align: center;
+    }
+
+    .countdown-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      margin-bottom: var(--space-lg);
+    }
+
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 80px;
+    }
+
+    .countdown-unit__value {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 600;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .countdown-unit__label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 6px;
+    }
+
+    .countdown-sep {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      color: rgba(255,255,255,0.2);
+      line-height: 1;
+      align-self: flex-start;
+      padding-top: 8px;
+    }
+
+    .married-message {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    /* ---- Nav Cards ---- */
+    .nav-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--space-lg);
+      padding: var(--space-2xl) var(--space-lg);
+      max-width: var(--max-width);
+      margin-inline: auto;
+    }
+
+    .nav-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: var(--space-xl) var(--space-lg);
+      background: var(--warm-white);
+      border: 1px solid var(--cream-dark);
+      border-radius: var(--radius-lg);
+      color: var(--forest);
+      box-shadow: var(--shadow-xs);
+      transition: box-shadow var(--transition-normal), transform var(--transition-normal),
+                  border-color var(--transition-normal);
+      text-decoration: none;
+    }
+
+    .nav-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+      border-color: var(--sage-light);
+      color: var(--forest);
+    }
+
+    .nav-card__icon {
+      font-size: 2.4rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .nav-card__title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: var(--space-xs);
+    }
+
+    .nav-card__desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ---- Welcome blurb ---- */
+    .welcome {
+      background: var(--cream);
+      text-align: center;
+      padding: var(--space-2xl) var(--space-lg);
+    }
+
+    .welcome__inner {
+      max-width: 640px;
+      margin-inline: auto;
+    }
+
+    .welcome__quote {
+      font-family: var(--font-heading);
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      font-style: italic;
+      color: var(--forest);
+      line-height: 1.6;
+      margin-bottom: var(--space-md);
+    }
+
+    .welcome__body {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== Navigation ========== -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__brand">Andrew <span>&amp;</span> Michelle</a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="story.html">Our Story</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="photos.html">Photos</a></li>
+        <li><a href="seating.html">Seating</a></li>
+        <li><a href="vendors.html">Vendors</a></li>
+      </ul>
+      <button class="site-nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile nav drawer -->
+  <div class="site-nav__mobile" aria-hidden="true">
+    <a href="index.html">Home</a>
+    <a href="story.html">Our Story</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="photos.html">Photos</a>
+    <a href="seating.html">Seating Chart</a>
+    <a href="vendors.html">Vendors</a>
+  </div>
+
+  <!-- ========== Hero ========== -->
+  <section class="hero" aria-label="Welcome">
+    <p class="hero__eyebrow">Summer Solstice · June 21, 2026</p>
+    <h1 class="hero__names">
+      Andrew
+      <span class="ampersand">&amp;</span>
+      Michelle
+    </h1>
+    <p class="hero__date">06 · 21 · 2026</p>
+    <div class="hero__cta">
+      <a href="schedule.html" class="btn btn--gold">View Schedule</a>
+      <a href="seating.html"  class="btn btn--outline" style="color:#fff;border-color:rgba(255,255,255,0.7);">Find Your Seat</a>
+    </div>
+  </section>
+
+  <!-- ========== Countdown ========== -->
+  <div class="countdown-section" aria-label="Countdown to the wedding">
+    <p class="countdown-label">Days until we say &ldquo;I do&rdquo;</p>
+    <div class="countdown-grid" id="countdown">
+      <div class="countdown-unit">
+        <span class="countdown-unit__value" id="cd-days">—</span>
+        <span class="countdown-unit__label">Days</span>
+      </div>
+      <span class="countdown-sep" aria-hidden="true">:</span>
+      <div class="countdown-unit">
+        <span class="countdown-unit__value" id="cd-hours">—</span>
+        <span class="countdown-unit__label">Hours</span>
+      </div>
+      <span class="countdown-sep" aria-hidden="true">:</span>
+      <div class="countdown-unit">
+        <span class="countdown-unit__value" id="cd-mins">—</span>
+        <span class="countdown-unit__label">Minutes</span>
+      </div>
+      <span class="countdown-sep" aria-hidden="true">:</span>
+      <div class="countdown-unit">
+        <span class="countdown-unit__value" id="cd-secs">—</span>
+        <span class="countdown-unit__label">Seconds</span>
+      </div>
+    </div>
+    <p class="married-message" id="countdown-married" style="display:none;">
+      Just Married! 🎉
+    </p>
+  </div>
+
+  <!-- ========== Welcome ========== -->
+  <section class="welcome">
+    <div class="welcome__inner reveal">
+      <p class="welcome__quote">"To love and be loved is to feel the sun from both sides."</p>
+      <p class="welcome__body">
+        We are so thrilled to celebrate our Summer Solstice wedding with the people we love most.
+        Use this site to find your seat, explore the day's schedule, and relive our story.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== Navigation Cards ========== -->
+  <main>
+    <section aria-label="Site sections">
+      <div class="nav-cards">
+        <a href="story.html" class="nav-card reveal" data-delay="0ms">
+          <div class="nav-card__icon">💍</div>
+          <h2 class="nav-card__title">Our Story</h2>
+          <p class="nav-card__desc">How we met, fell in love, and the moment we knew forever.</p>
+        </a>
+        <a href="schedule.html" class="nav-card reveal" data-delay="80ms">
+          <div class="nav-card__icon">🌿</div>
+          <h2 class="nav-card__title">Schedule</h2>
+          <p class="nav-card__desc">Ceremony at 6 PM · Cocktails · Reception until 11:30.</p>
+        </a>
+        <a href="photos.html" class="nav-card reveal" data-delay="160ms">
+          <div class="nav-card__icon">📸</div>
+          <h2 class="nav-card__title">Photos</h2>
+          <p class="nav-card__desc">Engagement photos and a gallery of our favorite moments.</p>
+        </a>
+        <a href="seating.html" class="nav-card reveal" data-delay="240ms">
+          <div class="nav-card__icon">🪑</div>
+          <h2 class="nav-card__title">Seating Chart</h2>
+          <p class="nav-card__desc">Search by name to find your table and view the floor plan.</p>
+        </a>
+        <a href="vendors.html" class="nav-card reveal" data-delay="320ms">
+          <div class="nav-card__icon">🎬</div>
+          <h2 class="nav-card__title">Vendors &amp; Media</h2>
+          <p class="nav-card__desc">Credits and links to wedding photos &amp; video from our vendors.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== Footer ========== -->
+  <footer class="site-footer">
+    <p class="site-footer__names">Andrew &amp; Michelle</p>
+    <p class="site-footer__date">June 21, 2026 · Summer Solstice</p>
+    <p class="site-footer__copy">&copy; 2026 Andrew &amp; Michelle. Made with love.</p>
+  </footer>
+
+  <!-- Back to top -->
+  <a href="#" class="back-to-top" aria-label="Back to top">&#8679;</a>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/countdown.js"></script>
+</body>
+</html>

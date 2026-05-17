@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule — Andrew &amp; Michelle</title>
+  <meta name="description" content="Wedding day schedule for Andrew &amp; Michelle's Summer Solstice celebration on June 21, 2026." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+
+  <style>
+    /* ---- Schedule-specific additions ---- */
+    .timeline__icon {
+      display: inline-block;
+      font-size: 1.4rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .timeline__detail {
+      margin-top: var(--space-sm);
+      padding: var(--space-md);
+      background: var(--cream);
+      border-left: 3px solid var(--gold-light);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .timeline__detail p {
+      margin: 0;
+    }
+
+    /* Dress code / venue info cards */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--space-lg);
+      max-width: var(--max-width);
+      margin-inline: auto;
+    }
+
+    .info-card {
+      padding: var(--space-lg);
+      background: var(--warm-white);
+      border: 1px solid var(--cream-dark);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .info-card__icon {
+      font-size: 1.8rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .info-card__label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 4px;
+    }
+
+    .info-card__title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .info-card__body {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== Navigation ========== -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__brand">Andrew <span>&amp;</span> Michelle</a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="story.html">Our Story</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="photos.html">Photos</a></li>
+        <li><a href="seating.html">Seating</a></li>
+        <li><a href="vendors.html">Vendors</a></li>
+      </ul>
+      <button class="site-nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="site-nav__mobile" aria-hidden="true">
+    <a href="index.html">Home</a>
+    <a href="story.html">Our Story</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="photos.html">Photos</a>
+    <a href="seating.html">Seating Chart</a>
+    <a href="vendors.html">Vendors</a>
+  </div>
+
+  <!-- ========== Page Hero ========== -->
+  <header class="page-hero">
+    <span class="page-hero__eyebrow">June 21, 2026</span>
+    <h1 class="page-hero__title">Wedding Day Schedule</h1>
+    <p class="page-hero__subtitle">Everything you need to know for our Summer Solstice celebration</p>
+  </header>
+
+  <main>
+
+    <!-- ========== Timeline ========== -->
+    <section class="section">
+      <div class="container container--narrow">
+        <ol class="timeline" aria-label="Wedding day timeline">
+
+          <li class="timeline__item reveal">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__icon">🌿</div>
+            <p class="timeline__time">Doors open · 5:30 PM</p>
+            <h2 class="timeline__title">Guests Arrive &amp; Be Seated</h2>
+            <p class="timeline__body">
+              Doors open at 5:30 PM. Please find your seat using the seating chart before the ceremony begins.
+              Ushers will be available to help.
+            </p>
+          </li>
+
+          <li class="timeline__item reveal">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__icon">💍</div>
+            <p class="timeline__time">Ceremony · 6:00 PM</p>
+            <h2 class="timeline__title">Wedding Ceremony</h2>
+            <p class="timeline__body">
+              Andrew and Michelle exchange their vows as the Summer Solstice sun begins to glow.
+              Please silence all mobile phones and be fully present for this special moment.
+            </p>
+            <div class="timeline__detail">
+              <p>The ceremony is expected to last approximately 30 minutes.</p>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__icon">🥂</div>
+            <p class="timeline__time">Cocktail Hour · 6:30 – 7:30 PM</p>
+            <h2 class="timeline__title">Cocktail Hour</h2>
+            <p class="timeline__body">
+              Celebrate with cocktails, passed appetizers, and good company while we capture
+              our first moments as husband and wife. Explore, mingle, and enjoy!
+            </p>
+          </li>
+
+          <li class="timeline__item reveal">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__icon">🎊</div>
+            <p class="timeline__time">Reception · 7:30 PM</p>
+            <h2 class="timeline__title">Reception Begins</h2>
+            <p class="timeline__body">
+              Guests are invited into the reception hall. Enjoy dinner, toasts from our
+              closest family and friends, and dancing all night long.
+            </p>
+            <div class="timeline__detail">
+              <p>First dances · Dinner service · Toasts · Cake cutting · Open dancing</p>
+            </div>
+          </li>
+
+          <li class="timeline__item reveal">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__icon">🌙</div>
+            <p class="timeline__time">Last Dance · 11:15 PM</p>
+            <h2 class="timeline__title">Last Dance</h2>
+            <p class="timeline__body">
+              Join us on the dance floor for our final song of the night.
+            </p>
+          </li>
+
+          <li class="timeline__item reveal">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__icon">✨</div>
+            <p class="timeline__time">Send-Off · 11:30 PM</p>
+            <h2 class="timeline__title">Grand Send-Off</h2>
+            <p class="timeline__body">
+              Help us close out the night with a memorable send-off as the evening comes to a close.
+              Safe travels home — we love you all!
+            </p>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========== Info Cards ========== -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__eyebrow">Good to Know</span>
+          <h2 class="section__title">Day-of Details</h2>
+          <span class="divider" aria-hidden="true"></span>
+        </div>
+        <div class="info-grid">
+          <div class="info-card reveal">
+            <div class="info-card__icon">👗</div>
+            <p class="info-card__label">Dress Code</p>
+            <h3 class="info-card__title">Cocktail Attire</h3>
+            <p class="info-card__body">
+              We invite guests to dress in cocktail or semi-formal attire.
+              Garden party florals and summer colors are warmly encouraged.
+            </p>
+          </div>
+          <div class="info-card reveal">
+            <div class="info-card__icon">📍</div>
+            <p class="info-card__label">Venue</p>
+            <h3 class="info-card__title">Venue Name TBD</h3>
+            <p class="info-card__body">
+              Address line 1<br />
+              City, State ZIP<br />
+              <a href="#" target="_blank" rel="noopener">Get Directions</a>
+            </p>
+          </div>
+          <div class="info-card reveal">
+            <div class="info-card__icon">🅿️</div>
+            <p class="info-card__label">Parking</p>
+            <h3 class="info-card__title">On-site Parking</h3>
+            <p class="info-card__body">
+              Complimentary parking is available on-site. Rideshare drop-off
+              and pick-up is also available at the main entrance.
+            </p>
+          </div>
+          <div class="info-card reveal">
+            <div class="info-card__icon">📵</div>
+            <p class="info-card__label">Ceremony</p>
+            <h3 class="info-card__title">Unplugged Ceremony</h3>
+            <p class="info-card__body">
+              We ask that you keep phones put away during the ceremony so everyone
+              can be fully present. Our photographer will capture everything!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== Footer ========== -->
+  <footer class="site-footer">
+    <p class="site-footer__names">Andrew &amp; Michelle</p>
+    <p class="site-footer__date">June 21, 2026 · Summer Solstice</p>
+    <p class="site-footer__copy">&copy; 2026 Andrew &amp; Michelle. Made with love.</p>
+  </footer>
+
+  <a href="#" class="back-to-top" aria-label="Back to top">&#8679;</a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photos — Andrew &amp; Michelle</title>
+  <meta name="description" content="Engagement and wedding photos of Andrew &amp; Michelle." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- PhotoSwipe CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.css" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+
+  <style>
+    /* ---- Gallery placeholder tiles ---- */
+    .gallery-placeholder {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: linear-gradient(135deg, var(--sage-pale), var(--gold-pale));
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      text-align: center;
+      gap: var(--space-xs);
+    }
+
+    .gallery-placeholder--wide {
+      aspect-ratio: 4 / 3;
+    }
+
+    .gallery-placeholder--tall {
+      aspect-ratio: 2 / 3;
+    }
+
+    .gallery-placeholder__icon {
+      font-size: 2rem;
+    }
+
+    /* PhotoSwipe gallery link wrapper */
+    a.gallery-item {
+      display: block;
+      break-inside: avoid;
+      margin-bottom: var(--space-md);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: zoom-in;
+      position: relative;
+      text-decoration: none;
+    }
+
+    a.gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform var(--transition-slow);
+    }
+
+    a.gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(44, 62, 45, 0);
+      transition: background var(--transition-normal);
+    }
+
+    a.gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    a.gallery-item:hover::after {
+      background: rgba(44, 62, 45, 0.15);
+    }
+
+    /* Future photos section */
+    .coming-soon-banner {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-lg);
+      background: linear-gradient(135deg, var(--sage-pale), var(--gold-pale));
+      border: 1px dashed var(--gold-light);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .coming-soon-banner__icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .coming-soon-banner__title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .coming-soon-banner__body {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== Navigation ========== -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__brand">Andrew <span>&amp;</span> Michelle</a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="story.html">Our Story</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="photos.html">Photos</a></li>
+        <li><a href="seating.html">Seating</a></li>
+        <li><a href="vendors.html">Vendors</a></li>
+      </ul>
+      <button class="site-nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="site-nav__mobile" aria-hidden="true">
+    <a href="index.html">Home</a>
+    <a href="story.html">Our Story</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="photos.html">Photos</a>
+    <a href="seating.html">Seating Chart</a>
+    <a href="vendors.html">Vendors</a>
+  </div>
+
+  <!-- ========== Page Hero ========== -->
+  <header class="page-hero">
+    <span class="page-hero__eyebrow">Andrew &amp; Michelle</span>
+    <h1 class="page-hero__title">Photos</h1>
+    <p class="page-hero__subtitle">Our favorite moments together</p>
+  </header>
+
+  <main>
+
+    <!-- ========== Engagement Gallery ========== -->
+    <section class="section">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow">Engagement Session</span>
+          <h2 class="section__title">Before the Big Day</h2>
+          <span class="divider" aria-hidden="true"></span>
+          <p class="section__subtitle">
+            Add your engagement photos to the <code>assets/images/</code> folder and update the
+            <code>data-pswp-src</code> attributes below.
+          </p>
+        </div>
+
+        <!-- PhotoSwipe Gallery Container -->
+        <!-- To add real photos:
+             1. Place images in assets/images/ (e.g., engagement-01.jpg)
+             2. Replace each <div class="gallery-placeholder"> with <img src="..." alt="...">
+             3. Update data-pswp-src, data-pswp-width, data-pswp-height on each <a> tag
+        -->
+        <div class="pswp-gallery gallery-grid" id="engagement-gallery">
+
+          <a href="assets/images/engagement-01.jpg"
+             data-pswp-src="assets/images/engagement-01.jpg"
+             data-pswp-width="1200"
+             data-pswp-height="1600"
+             class="gallery-item reveal"
+             aria-label="Engagement photo 1">
+            <div class="gallery-placeholder gallery-placeholder--tall">
+              <span class="gallery-placeholder__icon">📷</span>
+              <span>Photo 1</span>
+            </div>
+          </a>
+
+          <a href="assets/images/engagement-02.jpg"
+             data-pswp-src="assets/images/engagement-02.jpg"
+             data-pswp-width="1600"
+             data-pswp-height="1200"
+             class="gallery-item reveal"
+             aria-label="Engagement photo 2">
+            <div class="gallery-placeholder gallery-placeholder--wide">
+              <span class="gallery-placeholder__icon">📷</span>
+              <span>Photo 2</span>
+            </div>
+          </a>
+
+          <a href="assets/images/engagement-03.jpg"
+             data-pswp-src="assets/images/engagement-03.jpg"
+             data-pswp-width="1200"
+             data-pswp-height="1600"
+             class="gallery-item reveal"
+             aria-label="Engagement photo 3">
+            <div class="gallery-placeholder gallery-placeholder--tall">
+              <span class="gallery-placeholder__icon">📷</span>
+              <span>Photo 3</span>
+            </div>
+          </a>
+
+          <a href="assets/images/engagement-04.jpg"
+             data-pswp-src="assets/images/engagement-04.jpg"
+             data-pswp-width="1200"
+             data-pswp-height="1200"
+             class="gallery-item reveal"
+             aria-label="Engagement photo 4">
+            <div class="gallery-placeholder">
+              <span class="gallery-placeholder__icon">📷</span>
+              <span>Photo 4</span>
+            </div>
+          </a>
+
+          <a href="assets/images/engagement-05.jpg"
+             data-pswp-src="assets/images/engagement-05.jpg"
+             data-pswp-width="1600"
+             data-pswp-height="1200"
+             class="gallery-item reveal"
+             aria-label="Engagement photo 5">
+            <div class="gallery-placeholder gallery-placeholder--wide">
+              <span class="gallery-placeholder__icon">📷</span>
+              <span>Photo 5</span>
+            </div>
+          </a>
+
+          <a href="assets/images/engagement-06.jpg"
+             data-pswp-src="assets/images/engagement-06.jpg"
+             data-pswp-width="1200"
+             data-pswp-height="1600"
+             class="gallery-item reveal"
+             aria-label="Engagement photo 6">
+            <div class="gallery-placeholder gallery-placeholder--tall">
+              <span class="gallery-placeholder__icon">📷</span>
+              <span>Photo 6</span>
+            </div>
+          </a>
+
+          <a href="assets/images/engagement-07.jpg"
+             data-pswp-src="assets/images/engagement-07.jpg"
+             data-pswp-width="1200"
+             data-pswp-height="1600"
+             class="gallery-item reveal"
+             aria-label="Engagement photo 7">
+            <div class="gallery-placeholder gallery-placeholder--tall">
+              <span class="gallery-placeholder__icon">📷</span>
+              <span>Photo 7</span>
+            </div>
+          </a>
+
+          <a href="assets/images/engagement-08.jpg"
+             data-pswp-src="assets/images/engagement-08.jpg"
+             data-pswp-width="1600"
+             data-pswp-height="1200"
+             class="gallery-item reveal"
+             aria-label="Engagement photo 8">
+            <div class="gallery-placeholder gallery-placeholder--wide">
+              <span class="gallery-placeholder__icon">📷</span>
+              <span>Photo 8</span>
+            </div>
+          </a>
+
+          <a href="assets/images/engagement-09.jpg"
+             data-pswp-src="assets/images/engagement-09.jpg"
+             data-pswp-width="1200"
+             data-pswp-height="1600"
+             class="gallery-item reveal"
+             aria-label="Engagement photo 9">
+            <div class="gallery-placeholder gallery-placeholder--tall">
+              <span class="gallery-placeholder__icon">📷</span>
+              <span>Photo 9</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Wedding Photos (Coming Soon) ========== -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__eyebrow">June 21, 2026</span>
+          <h2 class="section__title">Wedding Day Photos</h2>
+          <span class="divider" aria-hidden="true"></span>
+        </div>
+
+        <div class="coming-soon-banner reveal">
+          <span class="coming-soon-banner__icon">🌿</span>
+          <div>
+            <h3 class="coming-soon-banner__title">Photos from our photographer — coming soon!</h3>
+            <p class="coming-soon-banner__body">
+              Wedding gallery will be shared here once our photographer delivers the
+              final edited images. Check back after the big day!
+            </p>
+          </div>
+        </div>
+
+        <div class="coming-soon-banner reveal">
+          <span class="coming-soon-banner__icon">🎬</span>
+          <div>
+            <h3 class="coming-soon-banner__title">Wedding highlight video — coming soon!</h3>
+            <p class="coming-soon-banner__body">
+              Our videographer's highlight reel will be linked here. We cannot wait
+              to share the magic with you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== Footer ========== -->
+  <footer class="site-footer">
+    <p class="site-footer__names">Andrew &amp; Michelle</p>
+    <p class="site-footer__date">June 21, 2026 · Summer Solstice</p>
+    <p class="site-footer__copy">&copy; 2026 Andrew &amp; Michelle. Made with love.</p>
+  </footer>
+
+  <a href="#" class="back-to-top" aria-label="Back to top">&#8679;</a>
+
+  <!-- PhotoSwipe library -->
+  <script type="module">
+    import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe-lightbox.esm.js';
+
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#engagement-gallery',
+      children: 'a.gallery-item',
+      pswpModule: () => import('https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.esm.js'),
+      // Prevent lightbox from opening if image hasn't loaded (placeholder divs)
+      errorMsg: 'Photo not available yet.'
+    });
+
+    // Only open lightbox if the href points to a real image file that exists
+    lightbox.on('beforeOpen', (e) => {
+      const slide = lightbox.pswp?.currSlide;
+      // Allow normal opening — real images will work; placeholders show an error gracefully
+    });
+
+    lightbox.init();
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

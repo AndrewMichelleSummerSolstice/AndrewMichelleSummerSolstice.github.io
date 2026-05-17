@@ -1,0 +1,264 @@
+/* =========================================================
+   Andrew & Michelle — Summer Solstice 2026
+   main.css — Variables, reset, typography, layout
+   ========================================================= */
+
+/* ---- Google Fonts ---- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap');
+
+/* ---- CSS Variables ---- */
+:root {
+  /* Brand Colors */
+  --sage:          #87A878;
+  --sage-light:    #B8D4AD;
+  --sage-pale:     #E4EFE0;
+  --sage-dark:     #5E8A50;
+  --gold:          #C9A84C;
+  --gold-light:    #E5CC8A;
+  --gold-pale:     #F5EDD0;
+  --gold-dark:     #9B7D2E;
+  --forest:        #2C3E2D;
+  --forest-mid:    #4A5E4B;
+  --warm-white:    #FAFAF5;
+  --cream:         #F5F0E8;
+  --cream-dark:    #E8E0D0;
+  --text-muted:    #7A8C7B;
+
+  /* Semantic */
+  --bg-primary:    var(--warm-white);
+  --bg-section:    var(--cream);
+  --text-primary:  var(--forest);
+  --text-secondary: var(--forest-mid);
+  --accent:        var(--sage);
+  --highlight:     var(--gold);
+
+  /* Typography */
+  --font-heading:  'Playfair Display', Georgia, serif;
+  --font-body:     'Lato', system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --space-xs:   0.375rem;
+  --space-sm:   0.75rem;
+  --space-md:   1.25rem;
+  --space-lg:   2rem;
+  --space-xl:   3.5rem;
+  --space-2xl:  6rem;
+
+  /* Layout */
+  --nav-height:     72px;
+  --max-width:      1200px;
+  --max-width-text: 760px;
+
+  /* Borders & Radius */
+  --radius-sm:  4px;
+  --radius-md:  10px;
+  --radius-lg:  20px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-xs:  0 1px 4px rgba(44,62,45,0.06);
+  --shadow-sm:  0 2px 10px rgba(44,62,45,0.10);
+  --shadow-md:  0 6px 24px rgba(44,62,45,0.13);
+  --shadow-lg:  0 12px 40px rgba(44,62,45,0.18);
+
+  /* Transitions */
+  --transition-fast:   150ms ease;
+  --transition-normal: 280ms ease;
+  --transition-slow:   500ms ease;
+}
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--sage-dark);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--gold-dark);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* ---- Typography ---- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--forest);
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.5rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+h4 { font-size: 1.2rem; }
+
+p {
+  margin-bottom: var(--space-md);
+  color: var(--text-secondary);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Layout Utilities ---- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+
+.container--narrow {
+  max-width: var(--max-width-text);
+}
+
+.section {
+  padding-block: var(--space-2xl);
+}
+
+.section--alt {
+  background-color: var(--bg-section);
+}
+
+.section__header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.section__eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: var(--space-sm);
+}
+
+.section__title {
+  margin-bottom: var(--space-sm);
+}
+
+.section__subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 540px;
+  margin-inline: auto;
+  margin-bottom: 0;
+}
+
+/* Divider */
+.divider {
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sage), var(--gold));
+  margin: var(--space-md) auto 0;
+  border-radius: var(--radius-pill);
+}
+
+/* ---- Scroll Animation ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Page Header (for inner pages) ---- */
+.page-hero {
+  padding-top: calc(var(--nav-height) + var(--space-xl));
+  padding-bottom: var(--space-xl);
+  background: linear-gradient(160deg, var(--sage-pale) 0%, var(--cream) 100%);
+  text-align: center;
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+.page-hero__eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.page-hero__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--forest);
+}
+
+.page-hero__subtitle {
+  font-size: 1.1rem;
+  color: var(--forest-mid);
+  margin-top: var(--space-sm);
+  margin-bottom: 0;
+}
+
+/* ---- Responsive Breakpoints ---- */
+@media (max-width: 768px) {
+  :root {
+    --space-2xl: 4rem;
+  }
+
+  .container {
+    padding-inline: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --space-2xl: 3rem;
+  }
+}

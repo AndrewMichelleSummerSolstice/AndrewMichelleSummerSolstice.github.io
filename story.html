@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story — Andrew &amp; Michelle</title>
+  <meta name="description" content="How Andrew and Michelle met, fell in love, and got engaged — their love story." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+
+  <style>
+    /* ---- Story layout ---- */
+    .story-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+      align-items: center;
+      padding-block: var(--space-2xl);
+    }
+
+    .story-section--flip .story-section__text {
+      order: 2;
+    }
+
+    .story-section--flip .story-section__image {
+      order: 1;
+    }
+
+    .story-section__image {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      background: var(--sage-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .story-section__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .story-section__image .placeholder {
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .story-section__image .placeholder__icon {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: var(--space-sm);
+    }
+
+    .story-section__image .placeholder__text {
+      font-size: 0.85rem;
+      margin: 0;
+    }
+
+    .story-section__eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: var(--space-sm);
+    }
+
+    .story-section__title {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      margin-bottom: var(--space-md);
+      color: var(--forest);
+    }
+
+    .story-section__body {
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: var(--space-md);
+    }
+
+    .story-section__body:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      padding: var(--space-xl) var(--space-2xl);
+      background: linear-gradient(135deg, var(--sage-pale) 0%, var(--gold-pale) 100%);
+      text-align: center;
+      border-top: 1px solid var(--cream-dark);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .pull-quote__text {
+      font-family: var(--font-heading);
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      font-style: italic;
+      color: var(--forest);
+      max-width: 680px;
+      margin-inline: auto;
+      margin-bottom: var(--space-sm);
+      line-height: 1.6;
+    }
+
+    .pull-quote__attribution {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin: 0;
+    }
+
+    /* Milestone markers */
+    .milestones {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-xl);
+      padding: var(--space-xl) var(--space-lg);
+      max-width: 900px;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .milestone {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-xs);
+      min-width: 140px;
+    }
+
+    .milestone__year {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .milestone__label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .story-section {
+        grid-template-columns: 1fr;
+      }
+
+      .story-section--flip .story-section__text { order: 1; }
+      .story-section--flip .story-section__image { order: 2; }
+
+      .pull-quote {
+        padding: var(--space-xl) var(--space-lg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== Navigation ========== -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__brand">Andrew <span>&amp;</span> Michelle</a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="story.html">Our Story</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="photos.html">Photos</a></li>
+        <li><a href="seating.html">Seating</a></li>
+        <li><a href="vendors.html">Vendors</a></li>
+      </ul>
+      <button class="site-nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="site-nav__mobile" aria-hidden="true">
+    <a href="index.html">Home</a>
+    <a href="story.html">Our Story</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="photos.html">Photos</a>
+    <a href="seating.html">Seating Chart</a>
+    <a href="vendors.html">Vendors</a>
+  </div>
+
+  <!-- ========== Page Hero ========== -->
+  <header class="page-hero">
+    <span class="page-hero__eyebrow">Andrew &amp; Michelle</span>
+    <h1 class="page-hero__title">Our Story</h1>
+    <p class="page-hero__subtitle">How two people found each other and chose forever</p>
+  </header>
+
+  <main>
+
+    <!-- ========== Milestones ========== -->
+    <section class="section section--alt" aria-label="Key milestones">
+      <div class="container">
+        <div class="section__header">
+          <span class="section__eyebrow">Our Journey</span>
+          <h2 class="section__title">The Highlights</h2>
+          <span class="divider" aria-hidden="true"></span>
+        </div>
+        <div class="milestones">
+          <div class="milestone reveal">
+            <span class="milestone__year">20XX</span>
+            <span class="milestone__label">We Met</span>
+          </div>
+          <div class="milestone reveal" data-delay="80ms">
+            <span class="milestone__year">20XX</span>
+            <span class="milestone__label">First Date</span>
+          </div>
+          <div class="milestone reveal" data-delay="160ms">
+            <span class="milestone__year">20XX</span>
+            <span class="milestone__label">Official</span>
+          </div>
+          <div class="milestone reveal" data-delay="240ms">
+            <span class="milestone__year">20XX</span>
+            <span class="milestone__label">Engaged</span>
+          </div>
+          <div class="milestone reveal" data-delay="320ms">
+            <span class="milestone__year">2026</span>
+            <span class="milestone__label">Married!</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== How We Met ========== -->
+    <section class="section">
+      <div class="container">
+        <div class="story-section">
+          <div class="story-section__image reveal">
+            <!-- Replace src with an actual engagement photo -->
+            <div class="placeholder">
+              <span class="placeholder__icon">📷</span>
+              <p class="placeholder__text">Photo coming soon</p>
+            </div>
+          </div>
+          <div class="story-section__text reveal">
+            <p class="story-section__eyebrow">Chapter One</p>
+            <h2 class="story-section__title">How We Met</h2>
+            <p class="story-section__body">
+              [Add your "how we met" story here. Tell guests where you first crossed paths,
+              what the moment was like, and what made you notice each other.]
+            </p>
+            <p class="story-section__body">
+              [Continue the story — the first conversation, what stood out, the feeling
+              that something special was beginning.]
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Pull Quote ========== -->
+    <div class="pull-quote reveal">
+      <blockquote>
+        <p class="pull-quote__text">"[Add a meaningful quote, a line from a song, or something one of you said that captures your relationship perfectly.]"</p>
+        <footer><p class="pull-quote__attribution">— Andrew &amp; Michelle</p></footer>
+      </blockquote>
+    </div>
+
+    <!-- ========== Falling in Love ========== -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="story-section story-section--flip">
+          <div class="story-section__text reveal">
+            <p class="story-section__eyebrow">Chapter Two</p>
+            <h2 class="story-section__title">Falling in Love</h2>
+            <p class="story-section__body">
+              [Share what the early days of the relationship were like — adventures you went on,
+              things you discovered you had in common, moments that made you certain.]
+            </p>
+            <p class="story-section__body">
+              [Describe the experiences, places, and memories that shaped your relationship
+              and brought you closer together.]
+            </p>
+          </div>
+          <div class="story-section__image reveal">
+            <div class="placeholder">
+              <span class="placeholder__icon">📷</span>
+              <p class="placeholder__text">Photo coming soon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== The Proposal ========== -->
+    <section class="section">
+      <div class="container">
+        <div class="story-section">
+          <div class="story-section__image reveal">
+            <div class="placeholder">
+              <span class="placeholder__icon">💍</span>
+              <p class="placeholder__text">Engagement photo coming soon</p>
+            </div>
+          </div>
+          <div class="story-section__text reveal">
+            <p class="story-section__eyebrow">Chapter Three</p>
+            <h2 class="story-section__title">The Proposal</h2>
+            <p class="story-section__body">
+              [Tell the proposal story — where it happened, how it was planned, and
+              what that moment meant to both of you.]
+            </p>
+            <p class="story-section__body">
+              [Describe the reaction, the emotion, and what happened after the big "Yes!" —
+              how you celebrated, who you called first, and what comes next.]
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Looking Ahead ========== -->
+    <section class="section section--alt">
+      <div class="container container--narrow" style="text-align:center;">
+        <span class="section__eyebrow">Chapter Four</span>
+        <h2 class="section__title reveal">Forever Begins on June 21</h2>
+        <span class="divider" aria-hidden="true"></span>
+        <p class="reveal" style="font-size:1.05rem;color:var(--text-secondary);margin-top:var(--space-lg);max-width:600px;margin-inline:auto;">
+          We cannot wait to celebrate the start of our forever surrounded by the
+          people we love most. Thank you for being part of our story.
+        </p>
+        <div style="margin-top:var(--space-xl);" class="reveal">
+          <a href="photos.html" class="btn btn--primary">See Our Photos</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== Footer ========== -->
+  <footer class="site-footer">
+    <p class="site-footer__names">Andrew &amp; Michelle</p>
+    <p class="site-footer__date">June 21, 2026 · Summer Solstice</p>
+    <p class="site-footer__copy">&copy; 2026 Andrew &amp; Michelle. Made with love.</p>
+  </footer>
+
+  <a href="#" class="back-to-top" aria-label="Back to top">&#8679;</a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
