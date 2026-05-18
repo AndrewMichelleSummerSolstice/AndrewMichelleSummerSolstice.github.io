@@ -31,16 +31,39 @@
       justify-content: center;
       text-align: center;
       padding: calc(var(--nav-height) + var(--space-xl)) var(--space-lg) var(--space-2xl);
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(44, 62, 45, 0.48) 0%,
-          rgba(44, 62, 45, 0.20) 60%,
-          rgba(44, 62, 45, 0.55) 100%
-        ),
-        url('assets/images/hero.jpg') center / cover no-repeat;
-      background-color: var(--forest); /* fallback while image loads */
+      background-color: var(--forest); /* fallback while video loads */
       position: relative;
+      overflow: hidden;
+    }
+
+    .hero__video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(44, 62, 45, 0.48) 0%,
+        rgba(44, 62, 45, 0.20) 60%,
+        rgba(44, 62, 45, 0.55) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .hero__eyebrow {
@@ -263,16 +286,22 @@
 
   <!-- ========== Hero ========== -->
   <section class="hero" aria-label="Welcome">
-    <p class="hero__eyebrow">Summer Solstice · June 21, 2026</p>
-    <h1 class="hero__names">
-      Andrew
-      <span class="ampersand">&amp;</span>
-      Michelle
-    </h1>
-    <p class="hero__date">06 · 21 · 2026</p>
-    <div class="hero__cta">
-      <a href="schedule.html" class="btn btn--gold">View Schedule</a>
-      <a href="seating.html"  class="btn btn--outline" style="color:#fff;border-color:rgba(255,255,255,0.7);">Find Your Seat</a>
+    <video class="hero__video-bg" autoplay muted loop playsinline poster="assets/images/hero.jpg">
+      <source src="assets/compilationVid.mp4" type="video/mp4" />
+    </video>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">Summer Solstice · June 21, 2026</p>
+      <h1 class="hero__names">
+        Andrew
+        <span class="ampersand">&amp;</span>
+        Michelle
+      </h1>
+      <p class="hero__date">06 · 21 · 2026</p>
+      <div class="hero__cta">
+        <a href="schedule.html" class="btn btn--gold">View Schedule</a>
+        <a href="seating.html"  class="btn btn--outline" style="color:#fff;border-color:rgba(255,255,255,0.7);">Find Your Seat</a>
+      </div>
     </div>
   </section>
 

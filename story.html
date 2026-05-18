@@ -251,9 +251,22 @@
       .photo-strip {
         grid-template-columns: 1fr;
       }
-    }
+
       .story-section {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+      }
+
+      /* Always show text above image on mobile, regardless of desktop order */
+      .story-section__text {
+        order: 1;
+      }
+
+      .story-section__image {
+        order: 2;
+        max-width: 340px;
+        width: 100%;
+        margin-inline: auto;
+        aspect-ratio: 3 / 2;
       }
 
       .story-section--flip .story-section__text { order: 1; }
