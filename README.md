@@ -1,8 +1,32 @@
 # Andrew & Michelle — Summer Solstice Wedding 2026
 
-A static wedding website hosted on GitHub Pages. Built with plain HTML, CSS, and JavaScript — no build step required.
+A static wedding website hosted on GitHub Pages. Built with plain HTML, CSS, and JavaScript — no build step, no dependencies.
 
 **Live site:** https://andrewmichellesummersolstice.github.io
+
+Features include a live countdown to June 21, 2026, an engagement photo gallery (PhotoSwipe lightbox), a password-protected seating chart with name search over an interactive SVG floor plan, and a dark/light mode toggle (saved per browser, also respects system preference).
+
+---
+
+## Local Development
+
+The site is fully static, so any HTTP server will work. Don't open the files directly with `file://` — the seating chart fetches `data/seating.json` and the browser will block that under the file protocol.
+
+Pick whichever is convenient:
+
+```bash
+# Python 3 (Windows: use `py` instead of `python`)
+python -m http.server 8000
+
+# Node (no install needed)
+npx serve -l 8000
+
+# VS Code: install the "Live Server" extension and click "Go Live"
+```
+
+Then open <http://localhost:8000/>.
+
+To edit, just change the HTML / CSS / JS files and refresh the browser — there's no build step or watcher. The CSS variables in `css/main.css` (`:root` block) define the color palette; the `[data-theme="dark"]` block below overrides them for dark mode.
 
 ---
 
