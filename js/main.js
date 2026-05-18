@@ -88,9 +88,62 @@
     });
   }
 
+  /* ---- Theme Toggle ---- */
+  const SUN  = '\u2600\uFE0F'; // ☀️
+  const MOON = '\uD83C\uDF19'; // 🌙
+
+  function currentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+
+  function applyTheme(theme, btn) {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+    if (btn) {
+      const icon = btn.querySelector('.theme-toggle__icon');
+      const label = btn.querySelector('.theme-toggle__label');
+      if (icon)  icon.textContent  = theme === 'dark' ? SUN : MOON;
+      if (label) label.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+      const tip = theme === 'dark' ? 'Toggle light mode' : 'Toggle dark mode';
+      btn.setAttribute('aria-label', tip);
+      btn.title = tip;
+    }
+  }
+
+  function initThemeToggle() {
+    const navInner  = document.querySelector('.site-nav__inner');
+    const hamburger = document.querySelector('.site-nav__toggle');
+    if (!navInner) return;
+
+    const btn = document.createElement('button');
+    btn.className = 'theme-toggle';
+    btn.type = 'button';
+    btn.innerHTML =
+      '<span class="theme-toggle__icon" aria-hidden="true"></span>' +
+      '<span class="theme-toggle__label"></span>';
+
+    if (hamburger && hamburger.parentNode === navInner) {
+      navInner.insertBefore(btn, hamburger);
+    } else {
+      navInner.appendChild(btn);
+    }
+
+    applyTheme(currentTheme(), btn);
+
+    btn.addEventListener('click', () => {
+      const next = currentTheme() === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      applyTheme(next, btn);
+    });
+  }
+
   /* ---- Init ---- */
   document.addEventListener('DOMContentLoaded', () => {
     setActiveLink();
     initReveal();
+    initThemeToggle();
   });
 })();

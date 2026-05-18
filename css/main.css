@@ -262,3 +262,122 @@ p:last-child {
     --space-2xl: 3rem;
   }
 }
+
+/* ---- Dark Theme ---- */
+[data-theme="dark"] {
+  --warm-white:     #232a23;
+  --cream:          #2a322a;
+  --cream-dark:     #3a423a;
+  --forest:         #e8e8dc;
+  --forest-mid:     #c5cfc0;
+  --text-muted:     #8d9a8e;
+  --sage-pale:      #2a3a26;
+  --gold-pale:      #3a3220;
+  --bg-primary:     #1a1f1a;
+  --bg-section:     #232a23;
+  --text-primary:   #e8e8dc;
+  --text-secondary: #c5cfc0;
+
+  --shadow-xs: 0 1px 4px rgba(0,0,0,0.30);
+  --shadow-sm: 0 2px 10px rgba(0,0,0,0.40);
+  --shadow-md: 0 6px 24px rgba(0,0,0,0.50);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.60);
+}
+
+body {
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* Preserve dark surfaces that previously used --forest as a background */
+[data-theme="dark"] .hero,
+[data-theme="dark"] .countdown-section,
+[data-theme="dark"] .site-footer {
+  background: #0d130d;
+}
+
+[data-theme="dark"] .back-to-top {
+  background: var(--sage-dark);
+  color: #fff;
+}
+
+[data-theme="dark"] .back-to-top:hover {
+  background: var(--gold-dark);
+}
+
+/* Gold button keeps gold bg, so text must stay dark */
+[data-theme="dark"] .btn--gold {
+  color: #1a1f1a;
+}
+
+[data-theme="dark"] .btn--gold:hover {
+  color: #1a1f1a;
+}
+
+/* Nav has a hard-coded translucent light bg */
+[data-theme="dark"] .site-nav {
+  background: rgba(26, 31, 26, 0.85);
+  border-bottom-color: var(--cream-dark);
+}
+
+[data-theme="dark"] .site-nav__mobile {
+  background: #1a1f1a;
+}
+
+/* SVG seating table circles read better with explicit fill in dark mode */
+[data-theme="dark"] .svg-table circle {
+  fill: #2a322a;
+  stroke: var(--sage);
+}
+
+[data-theme="dark"] .svg-table text {
+  fill: var(--text-primary);
+}
+
+/* ---- Theme Toggle (in nav, upper-right) ---- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.5rem 0.9rem 0.5rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  border: 1.5px solid var(--cream-dark);
+  color: var(--forest-mid);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--transition-fast), color var(--transition-fast),
+              border-color var(--transition-fast);
+}
+
+.theme-toggle__icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.theme-toggle:hover {
+  background: var(--sage-pale);
+  border-color: var(--sage);
+  color: var(--sage-dark);
+}
+
+[data-theme="dark"] .theme-toggle {
+  color: var(--gold-light);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: var(--gold-pale);
+}
+
+@media (max-width: 480px) {
+  .theme-toggle__label { display: none; }
+  .theme-toggle { padding: 0.5rem; }
+  .theme-toggle__icon { font-size: 1rem; }
+}
