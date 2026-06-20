@@ -96,6 +96,6 @@
   { "id": 88, "name": "Charlie Chen",       "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "" },
   { "id": 89, "name": "Katie Chen",         "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "" },
   { "id": 90, "name": "Jared Cohen",        "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "Best Skier in the World" },
-  { "id": 91, "name": "Paul Kim",           "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "Miner of Salt LOL" },
-  { "id": 92, "name": "Larry Lapitan",      "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "Producer of Salt" }
+  { "id": 91, "name": "Paul Kim",           "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "Miner of Salt LoL" },
+  { "id": 92, "name": "Larry Lapitan",      "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "Producer of Salt LoL" }
 ]
