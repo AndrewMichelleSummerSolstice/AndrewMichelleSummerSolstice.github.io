@@ -10,7 +10,7 @@
   { "id": 7,  "name": "Jamie Huang",        "table": 1,  "tableLabel": "Table 1",  "side": "groom", "alias": "Chicken Nugget Lover" },
   { "id": 8,  "name": "Jason Wong",         "table": 1,  "tableLabel": "Table 1",  "side": "groom", "alias": "" },
 
-  { "id": 19, "name": "Mary Tao Li",        "table": 3,  "tableLabel": "Table 3",  "side": "groom", "alias": "" },
+  { "id": 19, "name": "Mary Tao Li",        "table": 3,  "tableLabel": "Table 3",  "side": "groom", "alias": "Mama Li" },
   { "id": 20, "name": "Xumin Tao",          "table": 3,  "tableLabel": "Table 3",  "side": "groom", "alias": "Mike from Shanghai" },
   { "id": 21, "name": "Jeff Zhang",         "table": 3,  "tableLabel": "Table 3",  "side": "groom", "alias": "" },
   { "id": 22, "name": "Zhaohui Li",         "table": 3,  "tableLabel": "Table 3",  "side": "groom", "alias": "" },
@@ -20,7 +20,7 @@
   { "id": 26, "name": "Helen Zhang",        "table": 3,  "tableLabel": "Table 3",  "side": "groom", "alias": "" },
   { "id": 27, "name": "Su Zhang",           "table": 3,  "tableLabel": "Table 3",  "side": "groom", "alias": "" },
   
-  { "id": 35, "name": "Sean Li",            "table": 5,  "tableLabel": "Table 5",  "side": "groom", "alias": "" },
+  { "id": 35, "name": "Sean Li",            "table": 5,  "tableLabel": "Table 5",  "side": "groom", "alias": "Papa Li" },
   { "id": 36, "name": "Jimmy Chen",         "table": 5,  "tableLabel": "Table 5",  "side": "groom", "alias": "" },
   { "id": 37, "name": "Holly Taylor",       "table": 5,  "tableLabel": "Table 5",  "side": "groom", "alias": "" },
   { "id": 38, "name": "Steve Goidich",      "table": 5,  "tableLabel": "Table 5",  "side": "groom", "alias": "" },
@@ -54,7 +54,7 @@
   { "id": 10, "name": "Jia Hudak",          "table": 2,  "tableLabel": "Table 2",  "side": "bride", "alias": "" },
   { "id": 12, "name": "Casey Hudak",        "table": 2,  "tableLabel": "Table 2",  "side": "bride", "alias": "" },
   { "id": 13, "name": "Amanda Lim",         "table": 2,  "tableLabel": "Table 2",  "side": "bride", "alias": "" },
-  { "id": 14, "name": "Max",                "table": 2,  "tableLabel": "Table 2",  "side": "bride", "alias": "" },
+  { "id": 14, "name": "Max",                "table": 2,  "tableLabel": "Table 2",  "side": "bride", "alias": "MAX!" },
   { "id": 15, "name": "Nicole Youmans",     "table": 2,  "tableLabel": "Table 2",  "side": "bride", "alias": "" },
   { "id": 16, "name": "Jazz Jones",         "table": 2,  "tableLabel": "Table 2",  "side": "bride", "alias": "" },
   { "id": 17, "name": "Jerry Yang",         "table": 2,  "tableLabel": "Table 2",  "side": "bride", "alias": "" },
@@ -91,11 +91,11 @@
 
   { "id": 84, "name": "Jasper Wang",        "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "" },
   { "id": 85, "name": "Daniel Li",          "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "Brother of Groom" },
-  { "id": 86, "name": "Ryan Feng",          "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "" },
+  { "id": 86, "name": "Ryan Feng",          "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "Oracle of Seattle" },
   { "id": 87, "name": "Jodie Chen",         "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "" },
   { "id": 88, "name": "Charlie Chen",       "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "" },
   { "id": 89, "name": "Katie Chen",         "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "" },
-  { "id": 90, "name": "Jared Cohen",        "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "" },
-  { "id": 91, "name": "Paul Kim",           "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "" },
-  { "id": 92, "name": "Larry Lapitan",      "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "" }
+  { "id": 90, "name": "Jared Cohen",        "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "Best Skier" },
+  { "id": 91, "name": "Paul Kim",           "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "Miner of Salt LOL" },
+  { "id": 92, "name": "Larry Lapitan",      "table": 10, "tableLabel": "Table 10", "side": "bride", "alias": "Producer of Salt" }
 ]
