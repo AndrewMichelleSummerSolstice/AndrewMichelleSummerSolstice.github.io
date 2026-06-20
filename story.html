@@ -224,15 +224,16 @@
 
     @media (max-width: 640px) {
       .chibi-timeline {
-        padding-left: 44px;
+        padding-left: 28px;
+        padding-right: 4px;
         gap: var(--space-lg);
       }
       .chibi-timeline::before {
-        left: 18px;
+        left: 10px;
         transform: none;
       }
       .chibi-stop {
-        grid-template-columns: 28px 1fr;
+        grid-template-columns: 20px 1fr;
         gap: var(--space-sm);
       }
       .chibi-stop__empty { display: none; }
@@ -240,7 +241,12 @@
       .chibi-stop--right .chibi-stop__dot  { grid-column: 1; }
       .chibi-stop--left .chibi-stop__card,
       .chibi-stop--right .chibi-stop__card { grid-column: 2; }
-      .chibi-img { width: 160px; height: 160px; }
+      .chibi-img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 10;
+      }
     }
 
     /* ---- Story in-page nav ---- */
