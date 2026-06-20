@@ -3,12 +3,12 @@
 
   { "id": 1,  "name": "Matt Strong",        "table": 1,  "tableLabel": "Table 1",  "side": "groom", "alias": "Cope King" },
   { "id": 2,  "name": "Anisha Yerramilli",  "table": 1,  "tableLabel": "Table 1",  "side": "groom", "alias": "Cope Queen" },
-  { "id": 3,  "name": "Satish Upadhyaya",   "table": 1,  "tableLabel": "Table 1",  "side": "groom", "alias": "" },
+  { "id": 3,  "name": "Satish Upadhyaya",   "table": 1,  "tableLabel": "Table 1",  "side": "groom", "alias": "Cancun man" },
   { "id": 4,  "name": "Saoumyaa Jatkar",    "table": 1,  "tableLabel": "Table 1",  "side": "groom", "alias": "Content Creator" },
   { "id": 5,  "name": "Vincent Lin",        "table": 1,  "tableLabel": "Table 1",  "side": "groom", "alias": "Table Tennis Pro" },
-  { "id": 6,  "name": "Joyce Zhang",        "table": 1,  "tableLabel": "Table 1",  "side": "groom", "alias": "" },
+  { "id": 6,  "name": "Joyce Zhang",        "table": 1,  "tableLabel": "Table 1",  "side": "groom", "alias": "Super Soldier Planner" },
   { "id": 7,  "name": "Jamie Huang",        "table": 1,  "tableLabel": "Table 1",  "side": "groom", "alias": "Chicken Nugget Lover" },
-  { "id": 8,  "name": "Jason Wong",         "table": 1,  "tableLabel": "Table 1",  "side": "groom", "alias": "" },
+  { "id": 8,  "name": "Jason Wong",         "table": 1,  "tableLabel": "Table 1",  "side": "groom", "alias": "Catan Master or is He?" },
 
   { "id": 19, "name": "Mary Tao Li",        "table": 3,  "tableLabel": "Table 3",  "side": "groom", "alias": "Mama Li" },
   { "id": 20, "name": "Xumin Tao",          "table": 3,  "tableLabel": "Table 3",  "side": "groom", "alias": "Mike from Shanghai" },
