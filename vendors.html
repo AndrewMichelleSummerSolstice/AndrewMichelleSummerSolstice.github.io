@@ -365,6 +365,7 @@
         "DSCF4363.jpg","DSCF4427.jpg","DSCF4479.jpg","DSCF4720.jpg","DSCF4736.jpg"
       ];
       const basePath = "assets/images/FavoriteWeddingPhotos/";
+      const thumbPath = "assets/images/FavoriteWeddingPhotos/thumbs/";
       const gallery = document.getElementById("photo-gallery");
 
       // Build gallery items with IntersectionObserver lazy loading
@@ -385,7 +386,7 @@
         item.setAttribute("role", "listitem");
 
         const img = document.createElement("img");
-        img.dataset.src = basePath + filename;
+        img.dataset.src = thumbPath + filename;
         img.alt = "Wedding photo " + (index + 1);
         // Use native lazy loading as a fallback for browsers without IntersectionObserver
         img.loading = "lazy";
